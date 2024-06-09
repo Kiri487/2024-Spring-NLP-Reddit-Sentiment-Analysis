@@ -1,0 +1,67 @@
+.content {
+    display: flex;
+}
+
+#left-sidebar-container {
+    width: 18vw;
+}
+
+.class-list {
+    display: flex;
+    align-items: center;
+    padding: 0.2rem 1rem;
+    color: white;
+}
+
+.class-list p {
+    margin: 0 0.2rem;
+    padding: 0;
+}
+
+.class-list-icon {
+    padding: 0.5rem;
+}
+
+.class-list-arrow {
+    margin-left: auto
+}
+
+.class-list:hover {
+    background-color: #181c1f;
+    border-radius: 8px;
+    text-decoration: none;
+}
+
+.class-list-subreddit {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    padding: 0.5rem 0 0.5rem 1rem;
+    color: white;
+}
+
+.class-list-subreddit:hover {
+    text-decoration: none;
+    background-color: #181c1f;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px
+}
+
+.main{
+    width: 60vw;
+}
+
+.comments-container {
+    width: 22vw;
+    margin: 2rem;
+    background-color: black;
+    border-radius: 10px;
+    
+}
+
+.comments-container-title {
+    color: #797979;
+    text-align: center;
+    font-size: 1rem;
+    font-weight: bold;
+}

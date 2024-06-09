@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en-US" class="theme-beta theme-dark" style="--dvh-unit: 1dvh; --viewport-height: calc(calc(var(--dvh-unit) * 100));">
+  <head prefix="og: https://ogp.me/ns#">
+    <meta content="Az520Inasey3TAyqLyojQa8MnmCALSEU29yQFW8dePZ7xQTvSt73pHazLFTK5f7SyLUJSo2uKLesEtEa9aUYcgMAAACPeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZS5jb206NDQzIiwiZmVhdHVyZSI6IkRpc2FibGVUaGlyZFBhcnR5U3RvcmFnZVBhcnRpdGlvbmluZyIsImV4cGlyeSI6MTcyNTQwNzk5OSwiaXNTdWJkb21haW4iOnRydWUsImlzVGhpcmRQYXJ0eSI6dHJ1ZX0=" http-equiv="origin-trial">
+    <title>Reddit Sentiment Analysis</title>
+    <link href="./css/old.css" rel="stylesheet" type="text/css">
+    <link href="./css/style.css" rel="stylesheet" type="text/css">
+    <script>
+       // Setting this provides Lit a CSP nonce to use when dyamically creating style elements in
+       // browsers that don't support constructed stylesheets. See https://lit.dev/docs/api/LitElement/#LitElement.styles
+       var CLIENT_CONFIG = {"USE_DEBUG":false,"ACCOUNT_MANAGER_ORIGIN":"https://www.reddit.com","APPLE_SSO_CLIENT_ID":"com.reddit.RedditAppleSSO","MANIFEST_FILE":"client-manifest.json","ORIGIN":"https://www.reddit.com","MWEB_ORIGIN":"https://www.reddit.com","GOOGLE_SSO_CLIENT_ID":"705819728788-b2c1kcs7tst3b7ghv7at0hkqmtc68ckl.apps.googleusercontent.com","MEDIA_BASE_URL":"https://www.redditstatic.com/","PRECONNECT_ORIGINS":["https://www.redditstatic.com/"],"STATIC_BASE_URL":"https://www.redditstatic.com/shreddit/","IN_CLUSTER_STATIC_BASE_URL":"https://www.redditstatic.com/shreddit/","TRACKING_KEY":"ShredditFrontend-v1","TRACKING_ENDPOINT":"https://events.redditmedia.com/v2j","TRACKING_SECRET":"eW9vM3lhZW00VW9naDVleGFlZm9lcGhlZTZQaG9o","W3_REPORTING_WEB_VITAL_REPORTS_URL":"https://w3-reporting.reddit.com/reports","IS_GKE":false,"DEVVIT_GATEWAY_ORIGIN":"https://devvit-gateway.reddit.com"};
+    </script>
+    <script src="https://www.redditstatic.com/shreddit/en-US/header-large-client-js-7ddb3656.js" type="module">
+    </script>
+  </head>
+  <body class="v2">
+    <shreddit-app class="overflow-visible v2 pt-[var(--page-y-padding)] " loid="0000000000cr4cl6up.2.1623819569000.Z0FBQUFBQmd5WVV4WTQ5RnB6MVlnUFZXdnRucWhwWndySDdtblVsNF92T05sbENIcmVMbjE5c0NPSFV0X0VSV3hGYmhZSWRRbktDYnk4UHRQY3ppczZNVGNWaVJwSEluTk5Sb3FheHZiMm1OVlJaQjAwaUtCcUJvUktXRVRkVUlvUEZieExhMkJWQlY" serverrenderid="8f552e9d-9200-4c93-beed-2847fe0dc42b" update-recaptcha="true" routename="frontpage" pagetype="home" devicetype="desktop" devvit-allow-navigation="true" referrer="https://www.reddit.com/?feed=home" referrer-type="reddit" browser="chrome" disable-send-beacon="true" use-local-storage-events-caching="true" app-name="web3x" microapp-name="feeds" microapp-pool="main" microapp-deployment="production" clienthash="Ldwf3V5UI5t2j4MS" comments-partial-ssr="">
+    <reddit-header-large class="nd:visible top-0 left-0 right-0 fixed z-[4] theme-beta" is-hamburger-menu-included="" show-accountmanager-modal="true">
+      <reddit-header-action-items class="contents nd:visible">
+      <header class="v2 bg-neutral-background pointer-events-auto px-md">
+      <nav class="h-header-large border-b-sm border-t-0 border-l-0 border-r-0 border-solid border-neutral-border
+      flex items-center">
+      <div class="pr-lg flex gap-xs items-center justify-start">
+        <faceplate-tracker class="nd:visible flex items-center" source="nav" action="click" noun="reddit_logo">
+        <faceplate-tooltip style="--faceplate-tooltip-z-index: 1001;" class="nd:visible contents hello-world" position="bottom" appearance="inverted">
+        <a id="reddit-logo" class="no-underline flex items-center" href="/" aria-label="Home" slot="trigger">
+        <span class="pr-0 s:pr-xs flex items-center"><svg width="32" height="32" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 216 216" xml:space="preserve" xmlns:xlink="http://www.w3.org/1999/xlink">
+        <defs>
+        <radialGradient id="snoo-radial-gragient" cx="169.75" cy="92.19" fx="169.75" fy="92.19" r="50.98" gradientTransform="translate(0 11.64) scale(1 .87)" gradientUnits="userSpaceOnUse">
+          <stop offset="0" stop-color="#feffff"></stop>
+          <stop offset=".4" stop-color="#feffff"></stop>
+          <stop offset=".51" stop-color="#f9fcfc"></stop>
+          <stop offset=".62" stop-color="#edf3f5"></stop>
+          <stop offset=".7" stop-color="#dee9ec"></stop>
+          <stop offset=".72" stop-color="#d8e4e8"></stop>
+          <stop offset=".76" stop-color="#ccd8df"></stop>
+          <stop offset=".8" stop-color="#c8d5dd"></stop>
+          <stop offset=".83" stop-color="#ccd6de"></stop>
+          <stop offset=".85" stop-color="#d8dbe2"></stop>
+          <stop offset=".88" stop-color="#ede3e9"></stop>
+          <stop offset=".9" stop-color="#ffebef"></stop>
+        </radialGradient>
+        <radialGradient id="snoo-radial-gragient-2" cx="47.31" fx="47.31" r="50.98" xlink:href="#snoo-radial-gragient"></radialGradient>
+        <radialGradient id="snoo-radial-gragient-3" cx="109.61" cy="85.59" fx="109.61" fy="85.59" r="153.78" gradientTransform="translate(0 25.56) scale(1 .7)" xlink:href="#snoo-radial-gragient"></radialGradient>
+        <radialGradient id="snoo-radial-gragient-4" cx="-6.01" cy="64.68" fx="-6.01" fy="64.68" r="12.85" gradientTransform="translate(81.08 27.26) scale(1.07 1.55)" gradientUnits="userSpaceOnUse">
+          <stop offset="0" stop-color="#f60"></stop>
+          <stop offset=".5" stop-color="#ff4500"></stop>
+          <stop offset=".7" stop-color="#fc4301"></stop>
+          <stop offset=".82" stop-color="#f43f07"></stop>
+          <stop offset=".92" stop-color="#e53812"></stop>
+          <stop offset="1" stop-color="#d4301f"></stop>
+        </radialGradient>
+        <radialGradient id="snoo-radial-gragient-5" cx="-73.55" cy="64.68" fx="-73.55" fy="64.68" r="12.85" gradientTransform="translate(62.87 27.26) rotate(-180) scale(1.07 -1.55)" xlink:href="#snoo-radial-gragient-4"></radialGradient>
+        <radialGradient id="snoo-radial-gragient-6" cx="107.93" cy="166.96" fx="107.93" fy="166.96" r="45.3" gradientTransform="translate(0 57.4) scale(1 .66)" gradientUnits="userSpaceOnUse">
+          <stop offset="0" stop-color="#172e35"></stop>
+          <stop offset=".29" stop-color="#0e1c21"></stop>
+          <stop offset=".73" stop-color="#030708"></stop>
+          <stop offset="1" stop-color="#000"></stop>
+        </radialGradient>
+        <radialGradient id="snoo-radial-gragient-7" cx="147.88" cy="32.94" fx="147.88" fy="32.94" r="39.77" gradientTransform="translate(0 .54) scale(1 .98)" xlink:href="#snoo-radial-gragient"></radialGradient>
+        <radialGradient id="snoo-radial-gragient-8" cx="131.31" cy="73.08" fx="131.31" fy="73.08" r="32.6" gradientUnits="userSpaceOnUse">
+          <stop offset=".48" stop-color="#7a9299"></stop>
+          <stop offset=".67" stop-color="#172e35"></stop>
+          <stop offset=".75" stop-color="#000"></stop>
+          <stop offset=".82" stop-color="#172e35"></stop>
+        </radialGradient>
+        </defs>
+        <path class="snoo-cls-10" d="m108,0h0C48.35,0,0,48.35,0,108h0c0,29.82,12.09,56.82,31.63,76.37l-20.57,20.57c-4.08,4.08-1.19,11.06,4.58,11.06h92.36s0,0,0,0c59.65,0,108-48.35,108-108h0C216,48.35,167.65,0,108,0Z"></path>
+        <circle class="snoo-cls-1" cx="169.22" cy="106.98" r="25.22"></circle>
+        <circle class="snoo-cls-2" cx="46.78" cy="106.98" r="25.22"></circle>
+        <ellipse class="snoo-cls-3" cx="108.06" cy="128.64" rx="72" ry="54"></ellipse>
+        <path class="snoo-cls-4" d="m86.78,123.48c-.42,9.08-6.49,12.38-13.56,12.38s-12.46-4.93-12.04-14.01c.42-9.08,6.49-15.02,13.56-15.02s12.46,7.58,12.04,16.66Z"></path>
+        <path class="snoo-cls-7" d="m129.35,123.48c.42,9.08,6.49,12.38,13.56,12.38s12.46-4.93,12.04-14.01c-.42-9.08-6.49-15.02-13.56-15.02s-12.46,7.58-12.04,16.66Z"></path>
+        <ellipse class="snoo-cls-11" cx="79.63" cy="116.37" rx="2.8" ry="3.05"></ellipse>
+        <ellipse class="snoo-cls-11" cx="146.21" cy="116.37" rx="2.8" ry="3.05"></ellipse>
+        <path class="snoo-cls-5" d="m108.06,142.92c-8.76,0-17.16.43-24.92,1.22-1.33.13-2.17,1.51-1.65,2.74,4.35,10.39,14.61,17.69,26.57,17.69s22.23-7.3,26.57-17.69c.52-1.23-.33-2.61-1.65-2.74-7.77-.79-16.16-1.22-24.92-1.22Z"></path>
+        <circle class="snoo-cls-8" cx="147.49" cy="49.43" r="17.87"></circle>
+        <path class="snoo-cls-6" d="m107.8,76.92c-2.14,0-3.87-.89-3.87-2.27,0-16.01,13.03-29.04,29.04-29.04,2.14,0,3.87,1.73,3.87,3.87s-1.73,3.87-3.87,3.87c-11.74,0-21.29,9.55-21.29,21.29,0,1.38-1.73,2.27-3.87,2.27Z"></path>
+        <path class="snoo-cls-9" d="m62.82,122.65c.39-8.56,6.08-14.16,12.69-14.16,6.26,0,11.1,6.39,11.28,14.33.17-8.88-5.13-15.99-12.05-15.99s-13.14,6.05-13.56,15.2c-.42,9.15,4.97,13.83,12.04,13.83.17,0,.35,0,.52,0-6.44-.16-11.3-4.79-10.91-13.2Z"></path>
+        <path class="snoo-cls-9" d="m153.3,122.65c-.39-8.56-6.08-14.16-12.69-14.16-6.26,0-11.1,6.39-11.28,14.33-.17-8.88,5.13-15.99,12.05-15.99,7.07,0,13.14,6.05,13.56,15.2.42,9.15-4.97,13.83-12.04,13.83-.17,0-.35,0-.52,0,6.44-.16,11.3-4.79,10.91-13.2Z"></path>
+        </svg></span><span class="hidden s:flex items-center"><svg class="h-[22px]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 514 149" style="color: var(--shreddit-color-wordmark)">
+        <g style="fill: currentColor">
+        <path d="m71.62,45.92l-12.01,28.56c-1.51-.76-5.11-1.61-8.51-1.61s-6.81.85-10.12,2.46c-6.53,3.31-11.35,9.93-11.35,19.48v52.3H-.26V45.35h29.04v14.28h.57c6.81-9.08,17.21-15.79,30.74-15.79,4.92,0,9.65.95,11.54,2.08Z"></path>
+        <path d="m65.84,96.52c0-29.41,20.15-52.68,50.32-52.68,27.33,0,46.91,19.96,46.91,48.05,0,4.92-.47,9.55-1.51,14h-68.48c3.12,10.69,12.39,19.01,26.29,19.01,7.66,0,18.54-2.74,24.4-7.28l9.27,22.32c-8.61,5.86-21.75,8.7-33.29,8.7-32.25,0-53.91-20.81-53.91-52.11Zm26.67-9.36h43.03c0-13.05-8.89-19.96-19.77-19.96-12.3,0-20.62,7.94-23.27,19.96Z"></path>
+        <path d="m419.53-.37c10.03,0,18.25,8.23,18.25,18.25s-8.23,18.25-18.25,18.25-18.25-8.23-18.25-18.25S409.51-.37,419.53-.37Zm14.94,147.49h-29.89V45.35h29.89v101.77Z"></path>
+        <path d="m246,1.47l-.09,53.53h-.57c-8.23-7.85-17.12-11.07-28.75-11.07-28.66,0-47.67,23.08-47.67,52.3s17.78,52.4,46.72,52.4c12.11,0,23.55-4.16,30.93-13.62h.85v12.11h28.47V1.47h-29.89Zm1.42,121.39h-.99l-6.67-6.93c-4.34,4.33-10.28,6.93-17.22,6.93-14.64,0-24.88-11.58-24.88-26.6s10.24-26.6,24.88-26.6,24.88,11.58,24.88,26.6v26.6Z"></path>
+        <path d="m360.15,1.47l-.09,53.53h-.57c-8.23-7.85-17.12-11.07-28.75-11.07-28.66,0-47.67,23.08-47.67,52.3s17.78,52.4,46.72,52.4c12.11,0,23.55-4.16,30.93-13.62h.85v12.11h28.47V1.47h-29.89Zm1.28,121.39h-.99l-6.67-6.93c-4.34,4.33-10.28,6.93-17.22,6.93-14.64,0-24.88-11.58-24.88-26.6s10.24-26.6,24.88-26.6,24.88,11.58,24.88,26.6v26.6Z"></path>
+        <path d="m492.44,45.35h21.85v25.44h-21.85v76.33h-29.89v-76.33h-21.75v-25.44h21.75v-27.66h29.89v27.66Z"></path>
+        </g>
+        </svg> </span>
+        </a><span>Go to Reddit Home</span>
+        </faceplate-tooltip>
+        </faceplate-tracker>
+      </div>
+      </faceplate-tooltip></span></span><span data-part="primary" class="contents"></span></div></nav></header><!----></reddit-header-action-items>
+    </reddit-header-large>
+    <div class="content">
+      <div id="left-sidebar-container" class="left-sidebar theme-rpl isolate order-first hidden m:block border-0 border-solid s:border-r-sm border-r-neutral-border">
+        <reddit-sidebar-nav id="left-sidebar" data-persistent="" class="nd:visible block w-full sticky top-[56px] h-screen-without-header styled-scrollbars overflow-y-scroll overflow-x-hidden bg-neutral-background box-border w-[272px] px-md pt-md" data-scroll-restore="">
+          <nav class="z-[2] box-border flex flex-col mt-0 mb-0 shrink-0 s:shrink w-full min-h-screen-without-header select-none" aria-label="Primary">
+            <a class="class-list" href="./test.html">
+              <svg class="class-list-icon" rpl="" fill="currentColor" height="20" icon-name="topic-history-outline" viewBox="0 0 20 20" width="20" xmlns="http://www.w3.org/2000/svg">
+                <path d="M19.938 9.211a3.25 3.25 0 0 0-3.177-2.642c-.45 0-.895.102-1.3.3a10.812 10.812 0 0 0-4.838-1.379l.81-3.741 2.444.519a1.492 1.492 0 1 0 .2-1.235L11.572.5a1.13 1.13 0 0 0-1.333.862L9.343 5.5a10.77 10.77 0 0 0-4.791 1.357 3.214 3.214 0 0 0-1.315-.289A3.248 3.248 0 0 0 .064 9.2c-.079.4-.085.812-.018 1.214a3.23 3.23 0 0 0 .912 1.754l.066.071v.127c.076 3.69 4.013 6.582 8.975 6.582 4.961 0 8.89-2.889 8.965-6.567l.006-.138.044-.046a3.252 3.252 0 0 0 .939-1.778c.067-.4.062-.81-.015-1.208Zm-1.221 1c-.075.42-.282.805-.59 1.1l-.392.407-.024.625c-.061 3-3.45 5.354-7.716 5.354-4.267 0-7.66-2.353-7.717-5.371l-.024-.6-.4-.433c-.3-.293-.5-.674-.571-1.087a2.138 2.138 0 0 1 .012-.765 2 2 0 0 1 1.942-1.623c.353.003.698.102 1 .286l.337.216.334-.22a9.435 9.435 0 0 1 4.758-1.381h.719a9.427 9.427 0 0 1 4.726 1.4l.347.225.343-.232a1.7 1.7 0 0 1 .96-.3 2 2 0 0 1 1.949 1.629c.049.253.051.512.007.766v.004Z"></path>
+              </svg>          
+              <p>Overall</p>
+            </a> 
+            <hr class="w-100 my-sm border-neutral-border-weak"> 
+            <faceplate-expandable-section-helper rpl=""> <!--類別: 近期活動-->
+              <details class="p-0 m-0 bg-transparent border-none rounded-none">
+                <summary aria-controls="Recent Activities" aria-expanded="false" class="font-normal"> 
+                  <left-nav-topic-tracker noun="topic_menu" topic="recent_activities" class="nd:visible">
+                    <li rpl="" class="relative list-none mt-0 " role="presentation">
+                      <div class="class-list">
+                        <svg class="class-list-icon" rpl="" fill="currentColor" height="20" icon-name="topic-history-outline" viewBox="0 0 20 20" width="20" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M17.625 19H2.375v-1.25h15.25V19ZM17 4.684V3.625h-1.25v1.059a4.6 4.6 0 0 1-2.8 4.215l-1.062.442a.626.626 0 0 0 0 1.155l1.055.438a4.609 4.609 0 0 1 2.81 4.219v1.222H17v-1.222a5.853 5.853 0 0 0-3.28-5.235A5.85 5.85 0 0 0 17 4.684Zm-7 9.253 2.475 2.438h1.783l-3.82-3.761a.625.625 0 0 0-.876 0l-3.8 3.761h1.763L10 13.937ZM3 3.625v1.059a5.85 5.85 0 0 0 3.28 5.234A5.852 5.852 0 0 0 3 15.153v1.222h1.25v-1.222a4.6 4.6 0 0 1 2.8-4.215l1.065-.438a.626.626 0 0 0 0-1.155L7.06 8.9a4.609 4.609 0 0 1-2.81-4.216V3.625H3ZM17.625 1H2.375v1.25h15.25V1Z"></path>
+                        </svg>
+                        <p>Recent Activities</p>
+                        <svg class="class-list-arrow" fill="currentColor" height="20" icon-name="caret-down-outline" viewBox="0 0 20 20" width="20" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M10 13.125a.624.624 0 0 1-.442-.183l-5-5 .884-.884L10 11.616l4.558-4.558.884.884-5 5a.624.624 0 0 1-.442.183Z"></path>
+                        </svg>
+                      </div> 
+                    </li>
+                  </left-nav-topic-tracker>
+                </summary>
+                <faceplate-auto-height-animator class="block" connected="" style="transition: height 222ms ease 0s; height: 0px;"> <!--小標題列表-->
+                  <div faceplate-auto-height-animator-content="" id="Recent Activities" style="border-left: 1px solid var(--color-neutral-border-weak); margin-left: 28px; transition: opacity 222ms ease 0s; display: none;">
+                    <a class="class-list-subreddit" href="./test.html">new</a>
+                    <a class="class-list-subreddit" href="./test.html">funny</a>
+                    <a class="class-list-subreddit" href="./test.html">worldnews</a>
+                    <a class="class-list-subreddit" href="./test.html">politics</a>
+                    <a class="class-list-subreddit" href="./test.html">aww</a>
+                    <a class="class-list-subreddit" href="./test.html">pics</a>
+                    <a class="class-list-subreddit" href="./test.html">todayilearned</a>
+                    <a class="class-list-subreddit" href="./test.html">gaming</a>
+                    <a class="class-list-subreddit" href="./test.html">videos</a>
+                    <a class="class-list-subreddit" href="./test.html">nba</a>
+                  </div>
+                </faceplate-auto-height-animator>
+              </details>
+            </faceplate-expandable-section-helper>
+            <faceplate-expandable-section-helper rpl=""> <!--類別: 訂閱數-->
+              <details class="p-0 m-0 bg-transparent border-none rounded-none"> 
+                <summary aria-controls="Most Subscribed" aria-expanded="false" class="font-normal"> 
+                  <left-nav-topic-tracker noun="topic_menu" topic="recent_activities" class="nd:visible">
+                    <li rpl="" class="relative list-none mt-0 " role="presentation">
+                      <div class="class-list">
+                        <svg class="class-list-icon" rpl="" fill="currentColor" height="20" icon-name="topic-history-outline" viewBox="0 0 20 20" width="20" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M10 13.979a3.003 3.003 0 0 1-2.772-1.85 2.993 2.993 0 0 1 2.187-4.086 3.004 3.004 0 0 1 3.08 1.274 2.994 2.994 0 0 1-.373 3.784A3.003 3.003 0 0 1 10 13.98Zm0-4.745a1.752 1.752 0 0 0-1.617 1.08 1.746 1.746 0 0 0 1.275 2.383 1.752 1.752 0 0 0 2.092-1.715A1.748 1.748 0 0 0 10 9.234ZM15.5 19.497c-.15 0-.3-.03-.438-.09L10 17.235l-5.063 2.172a1.103 1.103 0 0 1-1.447-.555 1.097 1.097 0 0 1-.092-.558l.512-5.456L.274 8.724a1.098 1.098 0 0 1 .588-1.798l5.377-1.199 2.813-4.719a1.14 1.14 0 0 1 1.9 0l2.809 4.713 5.378 1.199a1.1 1.1 0 0 1 .838 1.294c-.038.187-.125.36-.25.504l-3.64 4.114.51 5.455a1.097 1.097 0 0 1-1.1 1.204l.004.006ZM10 15.977c.15 0 .298.03.436.088l4.894 2.097-.494-5.272a1.099 1.099 0 0 1 .27-.829l3.515-3.975-5.194-1.16a1.101 1.101 0 0 1-.71-.515L10 1.858 7.28 6.414a1.1 1.1 0 0 1-.707.512L1.38 8.086l3.515 3.975a1.098 1.098 0 0 1 .27.832l-.494 5.27 4.894-2.098c.138-.059.286-.089.436-.088Z"></path>
+                        </svg>
+                        <p>Most Subscribed</p>
+                        <svg class="class-list-arrow" fill="currentColor" height="20" icon-name="caret-down-outline" viewBox="0 0 20 20" width="20" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M10 13.125a.624.624 0 0 1-.442-.183l-5-5 .884-.884L10 11.616l4.558-4.558.884.884-5 5a.624.624 0 0 1-.442.183Z"></path>
+                        </svg>
+                      </div> 
+                    </li>
+                  </left-nav-topic-tracker>
+                </summary>
+                <faceplate-auto-height-animator class="block" connected="" style="transition: height 222ms ease 0s; height: 0px;"> <!--小標題列表-->
+                  <div faceplate-auto-height-animator-content="" id="Recent Activities" style="border-left: 1px solid var(--color-neutral-border-weak); margin-left: 28px; transition: opacity 222ms ease 0s; display: none;">
+                    <a class="class-list-subreddit" href="./test.html">funny</a>
+                    <a class="class-list-subreddit" href="./test.html">gaming</a>
+                    <a class="class-list-subreddit" href="./test.html">pics</a>
+                    <a class="class-list-subreddit" href="./test.html">science</a>
+                    <a class="class-list-subreddit" href="./test.html">worldnews</a>
+                    <a class="class-list-subreddit" href="./test.html">todayilearned</a>
+                    <a class="class-list-subreddit" href="./test.html">aww</a>
+                    <a class="class-list-subreddit" href="./test.html">movies</a>
+                    <a class="class-list-subreddit" href="./test.html">videos</a>
+                    <a class="class-list-subreddit" href="./test.html">Music</a>
+                  </div>
+                </faceplate-auto-height-animator>
+              </details>
+            </faceplate-expandable-section-helper>
+            <faceplate-expandable-section-helper rpl=""> <!--類別: 近期成長-->
+              <details class="p-0 m-0 bg-transparent border-none rounded-none"> 
+                <summary aria-controls="Most Subscribed" aria-expanded="false" class="font-normal"> 
+                  <left-nav-topic-tracker noun="topic_menu" topic="recent_activities" class="nd:visible">
+                    <li rpl="" class="relative list-none mt-0 " role="presentation">
+                      <div class="class-list">
+                        <svg class="class-list-icon" rpl="" fill="currentColor" height="20" icon-name="topic-history-outline" viewBox="0 0 20 20" width="20" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M17.852 4h-3.664a4.932 4.932 0 0 0-3.563 1.5A4.67 4.67 0 0 0 5.812 1H2.148A1.131 1.131 0 0 0 1 2.109v3.39A4.67 4.67 0 0 0 5.812 10h3.563v5.065A4.016 4.016 0 0 0 6 19.03v.625h1.25v-.625a2.75 2.75 0 0 1 5.5 0v.625H14v-.625a4.016 4.016 0 0 0-3.375-3.966V13h3.563A4.67 4.67 0 0 0 19 8.5V5.109a1.13 1.13 0 0 0-1.148-1.11ZM5.812 8.75A3.421 3.421 0 0 1 2.25 5.5V2.25h3.562A3.421 3.421 0 0 1 9.375 5.5v3.25H5.812ZM17.75 8.5a3.421 3.421 0 0 1-3.562 3.25h-3.563V8.5a3.421 3.421 0 0 1 3.563-3.25h3.562V8.5Z"></path>
+                        </svg>
+                        <p>Recent Growth</p>
+                        <svg class="class-list-arrow" fill="currentColor" height="20" icon-name="caret-down-outline" viewBox="0 0 20 20" width="20" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M10 13.125a.624.624 0 0 1-.442-.183l-5-5 .884-.884L10 11.616l4.558-4.558.884.884-5 5a.624.624 0 0 1-.442.183Z"></path>
+                        </svg>
+                      </div> 
+                    </li>
+                  </left-nav-topic-tracker>
+                </summary>
+                <faceplate-auto-height-animator class="block" connected="" style="transition: height 222ms ease 0s; height: 0px;"> <!--小標題列表-->
+                  <div faceplate-auto-height-animator-content="" id="Recent Activities" style="border-left: 1px solid var(--color-neutral-border-weak); margin-left: 28px; transition: opacity 222ms ease 0s; display: none;">
+                    <a class="class-list-subreddit" href="./test.html">WizardsUnite</a>
+                    <a class="class-list-subreddit" href="./test.html">crashteamracing</a>
+                    <a class="class-list-subreddit" href="./test.html">harrypotterwu</a>
+                    <a class="class-list-subreddit" href="./test.html">iamanutterpieceofshit</a>
+                    <a class="class-list-subreddit" href="./test.html">CompetitiveTFT</a>
+                    <a class="class-list-subreddit" href="./test.html">underlords</a>
+                    <a class="class-list-subreddit" href="./test.html">DotaUnderlords</a>
+                    <a class="class-list-subreddit" href="./test.html">toystory</a>
+                    <a class="class-list-subreddit" href="./test.html">Old_Recipes</a>
+                    <a class="class-list-subreddit" href="./test.html">euphoria</a>
+                  </div>
+                </faceplate-auto-height-animator>
+              </details>
+            </faceplate-expandable-section-helper>
+            <faceplate-expandable-section-helper rpl=""> <!--類別: 感興趣-->
+              <details class="p-0 m-0 bg-transparent border-none rounded-none"> 
+                <summary aria-controls="Most Subscribed" aria-expanded="false" class="font-normal"> 
+                  <left-nav-topic-tracker noun="topic_menu" topic="recent_activities" class="nd:visible">
+                    <li rpl="" class="relative list-none mt-0 " role="presentation">
+                      <div class="class-list">
+                        <svg class="class-list-icon" rpl="" fill="currentColor" height="20" icon-name="topic-history-outline" viewBox="0 0 20 20" width="20" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M7.678 5.875h-1.25V5.25a1.875 1.875 0 0 0-3.75 0v.625h-1.25V5.25a3.125 3.125 0 1 1 6.25 0v.625Z"></path><path d="M18.678 5.875h-1.25V5.25a1.875 1.875 0 1 0-3.75 0v.625h-1.25V5.25a3.125 3.125 0 0 1 6.25 0v.625Z"></path><path d="M10.053 17.875A8.635 8.635 0 0 1 1.428 9.25a.625.625 0 0 1 .625-.625h16a.625.625 0 0 1 .625.625 8.635 8.635 0 0 1-8.625 8.625Zm-7.348-8a7.375 7.375 0 0 0 14.7 0h-14.7Z"></path>
+                        </svg>
+                        <p>Interesting</p>
+                        <svg class="class-list-arrow" fill="currentColor" height="20" icon-name="caret-down-outline" viewBox="0 0 20 20" width="20" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M10 13.125a.624.624 0 0 1-.442-.183l-5-5 .884-.884L10 11.616l4.558-4.558.884.884-5 5a.624.624 0 0 1-.442.183Z"></path>
+                        </svg>
+                      </div> 
+                    </li>
+                  </left-nav-topic-tracker>
+                </summary>
+                <faceplate-auto-height-animator class="block" connected="" style="transition: height 222ms ease 0s; height: 0px;"> <!--小標題列表-->
+                  <div faceplate-auto-height-animator-content="" id="Recent Activities" style="border-left: 1px solid var(--color-neutral-border-weak); margin-left: 28px; transition: opacity 222ms ease 0s; display: none;">
+                    <a class="class-list-subreddit" href="./test.html">nosleep</a>
+                    <a class="class-list-subreddit" href="./test.html">AmItheAsshole</a>
+                    <a class="class-list-subreddit" href="./test.html">memes</a>
+                    <a class="class-list-subreddit" href="./test.html">unpopularopinion</a>
+                    <a class="class-list-subreddit" href="./test.html">KidsAreFuckingStupid</a>
+                    <a class="class-list-subreddit" href="./test.html">MadeMeSmile</a>
+                    <a class="class-list-subreddit" href="./test.html">photoshopbattles</a>
+                    <a class="class-list-subreddit" href="./test.html">BlackPeopleTwitter</a>
+                    <a class="class-list-subreddit" href="./test.html">KimetsuNoYaiba</a>
+                    <a class="class-list-subreddit" href="./test.html">DankLeft</a>
+                    <a class="class-list-subreddit" href="./test.html">BadMensAnatomy</a>
+                    <a class="class-list-subreddit" href="./test.html">Giraffesdontexist</a>
+                  </div>
+                </faceplate-auto-height-animator>
+              </details>
+            </faceplate-expandable-section-helper>
+          </nav>
+        </reddit-sidebar-nav>
+      </div>
+      <div class="main">
+      </div>
+      <div class="comments-container">
+        <p class="comments-container-title">Some of these comments</p>
+      </div>
+    </div>
+  </body>
+</html>
