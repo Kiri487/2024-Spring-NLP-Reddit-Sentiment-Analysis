@@ -52,6 +52,7 @@
   border-radius: 50%;
   overflow: hidden;
   border: 5px solid #0e1113;
+  background-color: #2a3236;
 }
 
 .title-wrapper {
