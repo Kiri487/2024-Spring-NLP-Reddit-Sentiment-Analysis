@@ -5,6 +5,7 @@
     <title>Reddit Sentiment Analysis</title>
     <link href="./css/old.css" rel="stylesheet" type="text/css">
     <link href="./css/style.css" rel="stylesheet" type="text/css">
+    <link href="./css/subreddit.css" rel="stylesheet" type="text/css">
     <script>
        // Setting this provides Lit a CSP nonce to use when dyamically creating style elements in
        // browsers that don't support constructed stylesheets. See https://lit.dev/docs/api/LitElement/#LitElement.styles
@@ -23,7 +24,7 @@
       <div class="pr-lg flex gap-xs items-center justify-start">
         <faceplate-tracker class="nd:visible flex items-center" source="nav" action="click" noun="reddit_logo">
         <faceplate-tooltip style="--faceplate-tooltip-z-index: 1001;" class="nd:visible contents hello-world" position="bottom" appearance="inverted">
-        <a id="reddit-logo" class="no-underline flex items-center" href="/" aria-label="Home" slot="trigger">
+        <a id="reddit-logo" class="no-underline flex items-center" href="./index.html" aria-label="Home" slot="trigger">
         <span class="pr-0 s:pr-xs flex items-center"><svg width="32" height="32" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 216 216" xml:space="preserve" xmlns:xlink="http://www.w3.org/1999/xlink">
         <defs>
         <radialGradient id="snoo-radial-gragient" cx="169.75" cy="92.19" fx="169.75" fy="92.19" r="50.98" gradientTransform="translate(0 11.64) scale(1 .87)" gradientUnits="userSpaceOnUse">
@@ -98,7 +99,7 @@
       <div id="left-sidebar-container" class="left-sidebar theme-rpl isolate order-first hidden m:block border-0 border-solid s:border-r-sm border-r-neutral-border">
         <reddit-sidebar-nav id="left-sidebar" data-persistent="" class="nd:visible block w-full sticky top-[56px] h-screen-without-header styled-scrollbars overflow-y-scroll overflow-x-hidden bg-neutral-background box-border w-[272px] px-md pt-md" data-scroll-restore="">
           <nav class="z-[2] box-border flex flex-col mt-0 mb-0 shrink-0 s:shrink w-full min-h-screen-without-header select-none" aria-label="Primary">
-            <a class="class-list" href="./test.html">
+            <a class="class-list" href="./index.html">
               <svg class="class-list-icon" rpl="" fill="currentColor" height="20" icon-name="topic-history-outline" viewBox="0 0 20 20" width="20" xmlns="http://www.w3.org/2000/svg">
                 <path d="M19.938 9.211a3.25 3.25 0 0 0-3.177-2.642c-.45 0-.895.102-1.3.3a10.812 10.812 0 0 0-4.838-1.379l.81-3.741 2.444.519a1.492 1.492 0 1 0 .2-1.235L11.572.5a1.13 1.13 0 0 0-1.333.862L9.343 5.5a10.77 10.77 0 0 0-4.791 1.357 3.214 3.214 0 0 0-1.315-.289A3.248 3.248 0 0 0 .064 9.2c-.079.4-.085.812-.018 1.214a3.23 3.23 0 0 0 .912 1.754l.066.071v.127c.076 3.69 4.013 6.582 8.975 6.582 4.961 0 8.89-2.889 8.965-6.567l.006-.138.044-.046a3.252 3.252 0 0 0 .939-1.778c.067-.4.062-.81-.015-1.208Zm-1.221 1c-.075.42-.282.805-.59 1.1l-.392.407-.024.625c-.061 3-3.45 5.354-7.716 5.354-4.267 0-7.66-2.353-7.717-5.371l-.024-.6-.4-.433c-.3-.293-.5-.674-.571-1.087a2.138 2.138 0 0 1 .012-.765 2 2 0 0 1 1.942-1.623c.353.003.698.102 1 .286l.337.216.334-.22a9.435 9.435 0 0 1 4.758-1.381h.719a9.427 9.427 0 0 1 4.726 1.4l.347.225.343-.232a1.7 1.7 0 0 1 .96-.3 2 2 0 0 1 1.949 1.629c.049.253.051.512.007.766v.004Z"></path>
               </svg>          
@@ -124,16 +125,16 @@
                 </summary>
                 <faceplate-auto-height-animator class="block" connected="" style="transition: height 222ms ease 0s; height: 0px;"> <!--小標題列表-->
                   <div faceplate-auto-height-animator-content="" id="Recent Activities" style="border-left: 1px solid var(--color-neutral-border-weak); margin-left: 28px; transition: opacity 222ms ease 0s; display: none;">
-                    <a class="class-list-subreddit" href="./test.html">new</a>
-                    <a class="class-list-subreddit" href="./test.html">funny</a>
-                    <a class="class-list-subreddit" href="./test.html">worldnews</a>
-                    <a class="class-list-subreddit" href="./test.html">politics</a>
-                    <a class="class-list-subreddit" href="./test.html">aww</a>
-                    <a class="class-list-subreddit" href="./test.html">pics</a>
-                    <a class="class-list-subreddit" href="./test.html">todayilearned</a>
-                    <a class="class-list-subreddit" href="./test.html">gaming</a>
-                    <a class="class-list-subreddit" href="./test.html">videos</a>
-                    <a class="class-list-subreddit" href="./test.html">nba</a>
+                    <div class="class-list-subreddit" data-file="./subreddit/news.html">news</div>
+                    <div class="class-list-subreddit" data-file="./subreddit/funny.html">funny</div>
+                    <div class="class-list-subreddit" data-file="./subreddit/worldnews.html">worldnews</div>
+                    <div class="class-list-subreddit" data-file="./subreddit/politics.html">politics</div>
+                    <div class="class-list-subreddit" data-file="./subreddit/aww.html">aww</div>
+                    <div class="class-list-subreddit" data-file="./subreddit/pics.html">pics</div>
+                    <div class="class-list-subreddit" data-file="./subreddit/todayilearned.html">todayilearned</div>
+                    <div class="class-list-subreddit" data-file="./subreddit/gaming.html">gaming</div>
+                    <div class="class-list-subreddit" data-file="./subreddit/videos.html">videos</div>
+                    <div class="class-list-subreddit" data-file="./subreddit/nba.html">nba</div>
                   </div>
                 </faceplate-auto-height-animator>
               </details>
@@ -157,16 +158,16 @@
                 </summary>
                 <faceplate-auto-height-animator class="block" connected="" style="transition: height 222ms ease 0s; height: 0px;"> <!--小標題列表-->
                   <div faceplate-auto-height-animator-content="" id="Recent Activities" style="border-left: 1px solid var(--color-neutral-border-weak); margin-left: 28px; transition: opacity 222ms ease 0s; display: none;">
-                    <a class="class-list-subreddit" href="./test.html">funny</a>
-                    <a class="class-list-subreddit" href="./test.html">gaming</a>
-                    <a class="class-list-subreddit" href="./test.html">pics</a>
-                    <a class="class-list-subreddit" href="./test.html">science</a>
-                    <a class="class-list-subreddit" href="./test.html">worldnews</a>
-                    <a class="class-list-subreddit" href="./test.html">todayilearned</a>
-                    <a class="class-list-subreddit" href="./test.html">aww</a>
-                    <a class="class-list-subreddit" href="./test.html">movies</a>
-                    <a class="class-list-subreddit" href="./test.html">videos</a>
-                    <a class="class-list-subreddit" href="./test.html">Music</a>
+                    <div class="class-list-subreddit" data-file="./subreddit/nosleep.html">funny</div>
+                    <div class="class-list-subreddit" data-file="./subreddit/nosleep.html">gaming</div>
+                    <div class="class-list-subreddit" data-file="./subreddit/nosleep.html">pics</div>
+                    <div class="class-list-subreddit" data-file="./subreddit/nosleep.html">science</div>
+                    <div class="class-list-subreddit" data-file="./subreddit/nosleep.html">worldnews</div>
+                    <div class="class-list-subreddit" data-file="./subreddit/nosleep.html">todayilearned</div>
+                    <div class="class-list-subreddit" data-file="./subreddit/nosleep.html">aww</div>
+                    <div class="class-list-subreddit" data-file="./subreddit/nosleep.html">movies</div>
+                    <div class="class-list-subreddit" data-file="./subreddit/nosleep.html">videos</div>
+                    <div class="class-list-subreddit" data-file="./subreddit/nosleep.html">Music</div>
                   </div>
                 </faceplate-auto-height-animator>
               </details>
@@ -190,16 +191,16 @@
                 </summary>
                 <faceplate-auto-height-animator class="block" connected="" style="transition: height 222ms ease 0s; height: 0px;"> <!--小標題列表-->
                   <div faceplate-auto-height-animator-content="" id="Recent Activities" style="border-left: 1px solid var(--color-neutral-border-weak); margin-left: 28px; transition: opacity 222ms ease 0s; display: none;">
-                    <a class="class-list-subreddit" href="./test.html">WizardsUnite</a>
-                    <a class="class-list-subreddit" href="./test.html">crashteamracing</a>
-                    <a class="class-list-subreddit" href="./test.html">harrypotterwu</a>
-                    <a class="class-list-subreddit" href="./test.html">iamanutterpieceofshit</a>
-                    <a class="class-list-subreddit" href="./test.html">CompetitiveTFT</a>
-                    <a class="class-list-subreddit" href="./test.html">underlords</a>
-                    <a class="class-list-subreddit" href="./test.html">DotaUnderlords</a>
-                    <a class="class-list-subreddit" href="./test.html">toystory</a>
-                    <a class="class-list-subreddit" href="./test.html">Old_Recipes</a>
-                    <a class="class-list-subreddit" href="./test.html">euphoria</a>
+                    <div class="class-list-subreddit" data-file="./subreddit/nosleep.html">WizardsUnite</div>
+                    <div class="class-list-subreddit" data-file="./subreddit/nosleep.html">crashteamracing</div>
+                    <div class="class-list-subreddit" data-file="./subreddit/nosleep.html">harrypotterwu</div>
+                    <div class="class-list-subreddit" data-file="./subreddit/nosleep.html">iamanutterpieceofshit</div>
+                    <div class="class-list-subreddit" data-file="./subreddit/nosleep.html">CompetitiveTFT</div>
+                    <div class="class-list-subreddit" data-file="./subreddit/nosleep.html">underlords</div>
+                    <div class="class-list-subreddit" data-file="./subreddit/nosleep.html">DotaUnderlords</div>
+                    <div class="class-list-subreddit" data-file="./subreddit/toystory.html">toystory</div>
+                    <div class="class-list-subreddit" data-file="./subreddit/nosleep.html">Old_Recipes</div>
+                    <div class="class-list-subreddit" data-file="./subreddit/nosleep.html">euphoria</div>
                   </div>
                 </faceplate-auto-height-animator>
               </details>
@@ -223,18 +224,18 @@
                 </summary>
                 <faceplate-auto-height-animator class="block" connected="" style="transition: height 222ms ease 0s; height: 0px;"> <!--小標題列表-->
                   <div faceplate-auto-height-animator-content="" id="Recent Activities" style="border-left: 1px solid var(--color-neutral-border-weak); margin-left: 28px; transition: opacity 222ms ease 0s; display: none;">
-                    <a class="class-list-subreddit" href="./test.html">nosleep</a>
-                    <a class="class-list-subreddit" href="./test.html">AmItheAsshole</a>
-                    <a class="class-list-subreddit" href="./test.html">memes</a>
-                    <a class="class-list-subreddit" href="./test.html">unpopularopinion</a>
-                    <a class="class-list-subreddit" href="./test.html">KidsAreFuckingStupid</a>
-                    <a class="class-list-subreddit" href="./test.html">MadeMeSmile</a>
-                    <a class="class-list-subreddit" href="./test.html">photoshopbattles</a>
-                    <a class="class-list-subreddit" href="./test.html">BlackPeopleTwitter</a>
-                    <a class="class-list-subreddit" href="./test.html">KimetsuNoYaiba</a>
-                    <a class="class-list-subreddit" href="./test.html">DankLeft</a>
-                    <a class="class-list-subreddit" href="./test.html">BadMensAnatomy</a>
-                    <a class="class-list-subreddit" href="./test.html">Giraffesdontexist</a>
+                    <div class="class-list-subreddit" data-file="./subreddit/nosleep.html">nosleep</div>
+                    <div class="class-list-subreddit" data-file="./subreddit/AmItheAsshole.html">AmItheAsshole</div>
+                    <div class="class-list-subreddit" data-file="./subreddit/memes.html">memes</div>
+                    <div class="class-list-subreddit" data-file="./subreddit/unpopularopinion.html">unpopularopinion</div>
+                    <div class="class-list-subreddit" data-file="./subreddit/KidsAreFuckingStupid.html">KidsAreFuckingStupid</div>
+                    <div class="class-list-subreddit" data-file="./subreddit/MadeMeSmile.html">MadeMeSmile</div>
+                    <div class="class-list-subreddit" data-file="./subreddit/photoshopbattles.html">photoshopbattles</div>
+                    <div class="class-list-subreddit" data-file="./subreddit/BlackPeopleTwitter.html">BlackPeopleTwitter</div>
+                    <div class="class-list-subreddit" data-file="./subreddit/KimetsuNoYaiba.html">KimetsuNoYaiba</div>
+                    <div class="class-list-subreddit" data-file="./subreddit/DankLeft.html">DankLeft</div>
+                    <div class="class-list-subreddit" data-file="./subreddit/BadMensAnatomy.html">BadMensAnatomy</div>
+                    <div class="class-list-subreddit" data-file="./subreddit/Giraffesdontexist.html">Giraffesdontexist</div>
                   </div>
                 </faceplate-auto-height-animator>
               </details>
@@ -243,10 +244,11 @@
         </reddit-sidebar-nav>
       </div>
       <div class="main">
+        <div id="subreddit">
+          SSSSSSS
+        </div>
       </div>
-      <div class="comments-container">
-        <p class="comments-container-title">Some of these comments</p>
-      </div>
+      <script src="./js/loadSubreddit.js"></script>
     </div>
   </body>
 </html>
