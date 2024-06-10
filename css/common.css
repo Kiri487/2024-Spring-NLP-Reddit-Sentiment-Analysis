@@ -1,0 +1,83 @@
+.content {
+    display: flex;
+}
+
+#left-sidebar-container {
+    width: 20vw;
+}
+
+.project-intro {
+    display: flex;
+    align-items: center;
+    padding: 0.2rem 1rem;
+    color: var(--color-tone-1);
+}
+
+.project-intro p {
+    margin: 0 0.2rem;
+    padding: 0;
+}
+
+.project-intro:hover {
+    background-color: var(--color-hover-option);
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.active-project-intro {
+    background-color: var(--color-active-option);
+    border-radius: 8px;
+}
+
+.class-list {
+    display: flex;
+    align-items: center;
+    padding: 0.2rem 1rem;
+    color: var(--color-tone-1);
+}
+
+.class-list p {
+    margin: 0 0.2rem;
+    padding: 0;
+}
+
+.class-list-icon {
+    padding: 0.5rem;
+}
+
+.class-list-arrow {
+    margin-left: auto
+}
+
+.class-list:hover {
+    background-color: var(--color-hover-option);
+    border-radius: 8px;
+    text-decoration: none;
+}
+
+.class-list-subreddit {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    padding: 0.5rem 0 0.5rem 1rem;
+    color: var(--color-tone-1);
+}
+
+.class-list-subreddit:hover {
+    text-decoration: none;
+    background-color: var(--color-hover-option);
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+    cursor: pointer;
+}
+
+.active-class-list-subreddit {
+    background-color: var(--color-active-option);
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+
+.main{
+    width: 80vw;
+    padding: 1rem 5rem;
+}  
