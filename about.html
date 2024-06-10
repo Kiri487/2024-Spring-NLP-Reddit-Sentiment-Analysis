@@ -18,9 +18,17 @@
     <div class="middle-content">
         <hr class="w-100 my-sm border-neutral-border-weak">
         <div class="chapter">
-            <div class="chapter-title">Purpose</div>
+            <div class="chapter-title">Project Overview</div>
             <div class="chapter-content">
+                <p style="font-weight: bold;">Purpose</p>
                 <p>The purpose of this project is to analyze user comments on various subreddits on <a href="https://www.reddit.com/">Reddit</a> to determine the predominant emotional tendencies of the comments in each subreddit.</p>
+                <p style="font-weight: bold;">Outcomes</p>
+                <ul>
+                    <li>Sentiment Analysis</li>
+                    <p>Provides an overview of the sentiments across various subreddits, including the distribution of emotions.</p>
+                    <li>Data Visualization</li>
+                    <p>Presents data and its sentiment analysis through visual charts, making it easier for users to understand the information.</p>
+                </ul>
             </div>
         </div>
         <hr class="w-100 my-sm border-neutral-border-weak">
@@ -31,10 +39,25 @@
                 <p> Use an existing dataset of Reddit comments for the initial training and testing of the model.</p>
                 <ul>
                     <li><a href="https://www.kaggle.com/code/widhiwinata/twitter-and-reddit-sentiment-analysis">Twitter and Reddit Sentiment Analysis</a></li>
+                    <a href="https://www.kaggle.com/code/widhiwinata/twitter-and-reddit-sentiment-analysis">(https://www.kaggle.com/code/widhiwinata/twitter-and-reddit-sentiment-analysis)</a>
+                    <li>Label</li>
+                    <ul>
+                        <li>Negative (-1)</li>
+                        <li>Neutral (0)</li>
+                        <li>Positive (1)</li>
+                    </ul>
                 </ul>
                 <p style="font-weight: bold;">Actual analysis</p>
-                <p>Use an API to collect the most recent 700 comments from specific subreddits.</p>
+                <p>Use the Reddit API to collect the latest 700 comments from specific subreddits.</p>
                 <ul>
+                    <li><a href="https://www.reddit.com/wiki/api/">API Documentation</a></li>
+                    <a href="https://www.reddit.com/wiki/api/">(https://www.reddit.com/wiki/api/)</a>
+                    <li>Specified Parameters</li>
+                    <ul>
+                        <li>User credentials: Developer credentials and agent</li>
+                        <li>subreddit: Target subreddit name</li>
+                        <li>limit: Number of comments retrieved per request</li>
+                    </ul>
                     <li>Date of comment collection for this project: 2024/5/29</li>
                 </ul>
             </div>
@@ -215,7 +238,26 @@
         <div class="chapter">
             <div class="chapter-title">Data Visualization</div>
             <div class="chapter-content">
-                
+                <p style="font-weight: bold;">Model Predictions</p>
+                <p>Input collected comments into the model for sentiment label prediction</p>
+                <ul>
+                    <li>Negative (-1)</li>
+                    <li>Neutral (0)</li>
+                    <li>Positive (1)</li>
+                </ul>
+                <p style="font-weight: bold;">Data Organization and Statistics</p>
+                <ul>
+                    <li>Count the number of sentiment labels for comments across various subreddits.</li>
+                    <li>Calculate the average values using label scores as weights to serve as an overall sentiment indicator for each subreddit.</li>
+                </ul>
+                <p style="font-weight: bold;">Visualization</p>
+                <p>Use the interactive data visualization platform <a href="https://observablehq.com/">Observable</a>, combining code and charts.</p>
+                <ul>
+                    <li>Bar Chart</li>
+                    <p>Display the overall sentiment trends of comments in each subreddit based on their overall sentiment indicators.</p>
+                    <li>Pie Chart</li>
+                    <p>Show the proportion of different sentiment comments in each subreddit.</p>
+                </ul>
             </div>
         </div>
         <hr class="w-100 my-sm border-neutral-border-weak">
