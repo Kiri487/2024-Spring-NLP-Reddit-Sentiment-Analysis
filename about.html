@@ -81,46 +81,158 @@
         </div>
         <hr class="w-100 my-sm border-neutral-border-weak">
         <div class="chapter">
-            <div class="chapter-title">Sentiment Analysis Model</div>
+            <div class="chapter-title">Experimental Models</div>
             <div class="chapter-content">
+                <p style="font-weight: bold;">Bi-LSTM</p>
                 <ul>
-                    <li>Bi-LSTM</li>
-                    <ul>
-                        <li><!-- 待補 --></li>
-                    </ul>
-                    <li>BERT</li>
-                    <ul>
-                        <li><!-- 待補 --></li>
-                    </ul>
+                    <li>Use Bidirectional Long Short-Term Memory (Bi-LSTM) networks for text sentiment analysis.</li>
+                    <li>Use <code>nn.Embedding</code> for word vectorization.</li>
+                    <li>Capture textual dependencies using bidirectional LSTM to analyze context from both directions.</li>
+                    <li>Process inputs through two fully connected layers with Dropout to reduce overfitting.</li>
+                    <li>The output layer uses a Softmax function to determine the final sentiment category.</li>
                 </ul>
+                <p style="font-weight: bold;">BERT</p>
+                <ul>
+                    <li>Use the pre-trained <code>bert-base-uncased</code> tokenizer for text processing.</li>
+                    <li>Extract features using the pre-trained BERT model.</li>
+                    <li>Process inputs through a fully connected layers with Dropout to reduce overfitting.</li>
+                    <li>The output layer uses a Softmax function to determine the final sentiment category.</li>
+                </ul>
+                <p>Both models are optimized using cross-entropy loss and the Adam optimizer, with performance evaluated based on accuracy, precision, recall, and F1-score.</p>
+                <p>Both models are also managed and monitored on the Weights & Biases platform, enabling the tracking of various metrics throughout the training process.</p>
             </div>
         </div>
         <hr class="w-100 my-sm border-neutral-border-weak">
         <div class="chapter">
             <div class="chapter-title">Model training results</div>
             <div class="chapter-content">
-                <!-- 待補 -->
+                <p style="font-weight: bold;">Bi-LSTM</p>
+                <br>
+                <table>
+                    <tr>
+                        <th>Epochs</th>
+                        <th>Learning rate</th>
+                        <th>Batch size</th>
+                        <th>Accuracy</th>
+                        <th>Precision</th>
+                        <th>Recall</th>
+                        <th>F1-score</th>
+                    </tr>
+                    <tr>
+                        <td>100</td>
+                        <td>0.001</td>
+                        <td>256</td>
+                        <td>0.7454</td>
+                        <td>0.7425</td>
+                        <td>0.7454</td>
+                        <td>0.7425</td>
+                    </tr>
+                    <tr>
+                        <td>100</td>
+                        <td>0.0001</td>
+                        <td>256</td>
+                        <td>0.6567</td>
+                        <td>0.5985</td>
+                        <td>0.6567</td>
+                        <td>0.6065</td>
+                    </tr>
+                    <tr>
+                        <td>150</td>
+                        <td>0.001</td>
+                        <td>256</td>
+                        <td>0.7771</td>
+                        <td>0.7758</td>
+                        <td>0.7771</td>
+                        <td>0.7764</td>
+                    </tr>
+                    <tr>
+                        <td>150</td>
+                        <td>0.0001</td>
+                        <td>256</td>
+                        <td>0.6767</td>
+                        <td>0.6509</td>
+                        <td>0.6767</td>
+                        <td>0.6579</td>
+                    </tr>
+                </table>
+                <img src="./src/img/LSTM_acc.png">
+                <img src="./src/img/LSTM_f1.png">              
+                <p style="font-weight: bold;">BERT</p>
+                <br>
+                <table>
+                    <tr>
+                        <th>Epochs</th>
+                        <th>Learning rate</th>
+                        <th>Batch size</th>
+                        <th>Accuracy</th>
+                        <th>Precision</th>
+                        <th>Recall</th>
+                        <th>F1-score</th>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>0.00002</td>
+                        <td>16</td>
+                        <td>0.9436</td>
+                        <td>0.9452</td>
+                        <td>0.9436</td>
+                        <td>0.9432</td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: bold;">5</td>
+                        <td style="font-weight: bold;">0.00002</td>
+                        <td style="font-weight: bold;">16</td>
+                        <td style="font-weight: bold;">0.9526</td>
+                        <td style="font-weight: bold;">0.9536</td>
+                        <td style="font-weight: bold;">0.9526</td>
+                        <td style="font-weight: bold;">0.9529</td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>0.00003</td>
+                        <td>16</td>
+                        <td>0.9524</td>
+                        <td>0.9528</td>
+                        <td>0.9524</td>
+                        <td>0.9521</td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>0.00001</td>
+                        <td>16</td>
+                        <td>0.9506</td>
+                        <td>0.9513</td>
+                        <td>0.9506</td>
+                        <td>0.9508</td>
+                    </tr>
+                </table>
+                <img src="./src/img/BERT_acc.png">
+                <img src="./src/img/BERT_f1.png">
+                <p>Our project finally chose to use the BERT model with the following settings: 5 epochs, a learning rate of 0.00002, and a batch size of 16, because it has the best performance across all metrics.</p>
             </div>
         </div>
         <hr class="w-100 my-sm border-neutral-border-weak">
         <div class="chapter">
-            <div class="chapter-title">Title</div>
+            <div class="chapter-title">Data Visualization</div>
             <div class="chapter-content">
                 
             </div>
         </div>
         <hr class="w-100 my-sm border-neutral-border-weak">
         <div class="chapter">
-            <div class="chapter-title">Title</div>
+            <div class="chapter-title">Result Analysis</div>
             <div class="chapter-content">
                 
             </div>
         </div>
         <hr class="w-100 my-sm border-neutral-border-weak">
         <div class="chapter">
-            <div class="chapter-title">Title</div>
+            <div class="chapter-title">Future Works</div>
             <div class="chapter-content">
-                
+                <p style="font-weight: bold;">Time Trend Analysis</p>
+                <p>Analyze how user sentiments evolve over time and in response to specific events, exploring the interrelationships between emotional shifts and significant occurrences.</p>
+                <p style="font-weight: bold;">Real-Time Analysis</p>
+                <p>Develop a feature that enables the system to automatically update daily, providing real-time tracking and analysis of sentiment among users of various subreddits.</p>
             </div>
         </div>
     </div>
