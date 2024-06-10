@@ -1,3 +1,24 @@
+#reddit-logo {
+    margin-left: 0.5rem;
+}
+
+.github-link {
+    background-color: #ff4500;
+    border-radius: 30px;
+    color: white;
+    font-size: 1rem;
+    font-weight: bold;
+    padding: 0.5rem 0.8rem;
+    margin-left: auto;
+    margin-right: 0.5rem;
+}
+
+.github-link:hover {
+    text-decoration: none;
+    background-color: #D93900;
+}
+
+
 .content {
     display: flex;
 }
