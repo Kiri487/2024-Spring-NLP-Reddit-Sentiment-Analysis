@@ -18,12 +18,111 @@
     <div class="middle-content">
         <hr class="w-100 my-sm border-neutral-border-weak">
         <div class="chapter">
+            <div class="chapter-title">Purpose</div>
+            <div class="chapter-content">
+                <p>The purpose of this project is to analyze user comments on various subreddits on <a href="https://www.reddit.com/">Reddit</a> to determine the predominant emotional tendencies of the comments in each subreddit.</p>
+            </div>
+        </div>
+        <hr class="w-100 my-sm border-neutral-border-weak">
+        <div class="chapter">
+            <div class="chapter-title">Data Collection</div>
+            <div class="chapter-content">
+                <p style="font-weight: bold;">Model training</p>
+                <p> Use an existing dataset of Reddit comments for the initial training and testing of the model.</p>
+                <ul>
+                    <li><a href="https://www.kaggle.com/code/widhiwinata/twitter-and-reddit-sentiment-analysis">Twitter and Reddit Sentiment Analysis</a></li>
+                </ul>
+                <p style="font-weight: bold;">Actual analysis</p>
+                <p>Use an API to collect the most recent 700 comments from specific subreddits.</p>
+                <ul>
+                    <li>Date of comment collection for this project: 2024/5/29</li>
+                </ul>
+            </div>
+        </div>
+        <hr class="w-100 my-sm border-neutral-border-weak">
+        <div class="chapter">
+            <div class="chapter-title">Data Processing</div>
+            <div class="chapter-content">
+                <p>This part is only used for the Bi-LSTM model. The BERT model use the tokenizer from BERT's pre-trained models.</p>
+                <p style="font-weight: bold;">Text Cleaning and Tokenization</p>
+                <ul>
+                    <li>Remove all mentions containing '@' and links.</li>
+                    <li>Use NLTK’s <code>word_tokenize</code> for tokenization.</li>
+                    <li>Filter out all non-English characters from words.</li>
+                </ul>
+                <p style="font-weight: bold;">Lemmatization</p>
+                <ul>
+                    <li>Use NLTK’s <code>WordNetLemmatizer</code> and part-of-speech tagging to lemmatize each word.</li>
+                </ul>
+                <p style="font-weight: bold;">Dataset Splitting</p>
+                <ul>
+                    <li>80% training set</li>
+                    <li>20% testing set.</li>
+                </ul>
+                <p style="font-weight: bold;">Vocabulary Building</p>
+                <ul>
+                    <li>Build a vocabulary from the words in the training set, assigning each unique word an integer index.</li>
+                </ul>
+                <p style="font-weight: bold;">Padding and Truncation</p>
+                <ul>
+                    <li>Use the number of words in the longest sentence from the training set as the standard.</li>
+                    <li>Standardize the length of all sentences:</li>
+                    <ul>
+                        <li>Pad sentences that are too short with <code>'PAD'</code>.</li>
+                        <li>Truncate sentences that are too long.</li>
+                    </ul>
+                </ul>
+                <p style="font-weight: bold;">Encoding</p>
+                <ul>
+                    <li>Encode all data using the vocabulary.</li>
+                    <li>Represent words not in the vocabulary as <code>'UNK'</code> for unknown.</li>
+                </ul>
+            </div>
+        </div>
+        <hr class="w-100 my-sm border-neutral-border-weak">
+        <div class="chapter">
+            <div class="chapter-title">Sentiment Analysis Model</div>
+            <div class="chapter-content">
+                <ul>
+                    <li>Bi-LSTM</li>
+                    <ul>
+                        <li><!-- 待補 --></li>
+                    </ul>
+                    <li>BERT</li>
+                    <ul>
+                        <li><!-- 待補 --></li>
+                    </ul>
+                </ul>
+            </div>
+        </div>
+        <hr class="w-100 my-sm border-neutral-border-weak">
+        <div class="chapter">
+            <div class="chapter-title">Model training results</div>
+            <div class="chapter-content">
+                <!-- 待補 -->
+            </div>
+        </div>
+        <hr class="w-100 my-sm border-neutral-border-weak">
+        <div class="chapter">
             <div class="chapter-title">Title</div>
             <div class="chapter-content">
                 
             </div>
         </div>
-        <hr class="w-100 my-sm border-neutral-border-weak"> 
+        <hr class="w-100 my-sm border-neutral-border-weak">
+        <div class="chapter">
+            <div class="chapter-title">Title</div>
+            <div class="chapter-content">
+                
+            </div>
+        </div>
+        <hr class="w-100 my-sm border-neutral-border-weak">
+        <div class="chapter">
+            <div class="chapter-title">Title</div>
+            <div class="chapter-content">
+                
+            </div>
+        </div>
     </div>
     <div class="right-sidebar">
         <p class="right-sidebar-title">Team members</p>

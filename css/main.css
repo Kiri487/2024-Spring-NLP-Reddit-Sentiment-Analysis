@@ -19,7 +19,6 @@
 	margin-top: 0;
 }
 
-
 .content-wrapper {
 	display: flex;
 	flex: 1;
@@ -112,7 +111,7 @@
 
 .member {
 	padding: 0.5rem 1rem;
-	margin: 1rem 0.5rem;
+	margin: 1rem;
 	display: flex;
 }
 
