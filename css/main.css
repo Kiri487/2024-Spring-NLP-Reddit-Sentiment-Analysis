@@ -118,6 +118,8 @@
 .member:hover {
 	background-color: var(--color-active-option);
 	border-radius: 5px;
+	text-decoration: none;
+	cursor: pointer;
 }
 
 .member img {
@@ -129,6 +131,7 @@
 
 .member-info {
 	margin: auto 0;
+	color: var(--color-tone-2);
 }
 
 .name {
