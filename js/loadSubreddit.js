@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', function() {
       });
   }
 
-  const defaultOption = document.querySelector('.project-intro[data-file="./overall.html"]');
+  const defaultOption = document.querySelector('.project-intro[data-file="./about.html"]');
   if (defaultOption) {
     defaultOption.click();
   }
