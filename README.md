@@ -1,4 +1,9 @@
 # README 
+## Overview 
+- This is the final project for the NLP course.
+- Demo website: https://kiri487.github.io/2024-Spring-NLP-Reddit-Sentiment-Analysis/ **!!! Best viewed on PC !!!**
+- The content is for educational and learning purposes only.
+
 ## Environment
 - Ubuntu 16.04.7 LTS
 - NVIDIA GeForce RTX 3060（12 GB）
@@ -13,7 +18,7 @@
     - transformers 4.41.2
     - wandb 0.17.1
 
-## /code
+## /code/
 - dataProcess.py
     - Handles data preprocessing tasks including tokenization, lemmatization, and encoding. 
     - It prepares the dataset for model training by converting text into a format suitable for neural network processing.
@@ -24,7 +29,7 @@
 - test_BERT.py
     - Executes sentiment prediction using the pre-trained BERT model on new data and saves the predictions to specified directories.
 
-## /code/model
+## /code/model/
 - model_BERT.py
     - Training code for the BERT model.
 - model_LSTM.py
