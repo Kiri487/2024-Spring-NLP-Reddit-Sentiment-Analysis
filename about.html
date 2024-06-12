@@ -108,20 +108,21 @@
         <div class="chapter">
             <div class="chapter-title">Experimental Models</div>
             <div class="chapter-content">
+                <img src="./src/img/model.png" style="margin-top: 1rem;">
                 <p style="font-weight: bold;">Bi-LSTM</p>
                 <ul>
                     <li>Use Bidirectional Long Short-Term Memory (Bi-LSTM) networks for text sentiment analysis.</li>
                     <li>Use <code>nn.Embedding</code> for word vectorization.</li>
                     <li>Capture textual dependencies using bidirectional LSTM to analyze context from both directions.</li>
                     <li>Process inputs through two fully connected layers with Dropout to reduce overfitting.</li>
-                    <li>The output layer uses a Softmax function to determine the final sentiment category.</li>
+                    <li>The output layer determines the final sentiment category.</li>
                 </ul>
                 <p style="font-weight: bold;">BERT</p>
                 <ul>
                     <li>Use the pre-trained <code>bert-base-uncased</code> tokenizer for text processing.</li>
                     <li>Extract features using the pre-trained BERT model.</li>
                     <li>Process inputs through a fully connected layers with Dropout to reduce overfitting.</li>
-                    <li>The output layer uses a Softmax function to determine the final sentiment category.</li>
+                    <li>The output layer determines the final sentiment category.</li>
                 </ul>
                 <p>Both models are optimized using cross-entropy loss and the Adam optimizer, with performance evaluated based on accuracy, precision, recall, and F1-score.</p>
                 <p>Both models are also managed and monitored on the Weights & Biases platform, enabling the tracking of various metrics throughout the training process.</p>
