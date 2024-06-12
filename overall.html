@@ -18,83 +18,98 @@
     <div class="middle-content" style="width: 100%;">
         <hr class="w-100 my-sm border-neutral-border-weak">
         <div class="chapter-title">Category Sentiment Average</div>
-        <iframe width="100%" height="254" frameborder="0" src="https://observablehq.com/embed/8eca6e7b0d948a10@532?cells=classChart"></iframe>
-        <ul>
-            <li><b>Interesting</b> category has the highest average sentiment score, indicating that the overall sentiment is relatively positive.</li>
-            <li><b>Activities</b> category has the lowest average sentiment score, indicating that the overall sentiment is relatively negative or neutral.</li>
-        </ul>
+        <div class="chapter-content">
+            <iframe width="100%" height="254" frameborder="0" src="https://observablehq.com/embed/8eca6e7b0d948a10@532?cells=classChart"></iframe>
+            <ul>
+                <li><b>Interesting</b> category has the highest average sentiment score, indicating that the overall sentiment is relatively positive.</li>
+                <li><b>Activities</b> category has the lowest average sentiment score, indicating that the overall sentiment is relatively negative or neutral.</li>
+            </ul>
+        </div>
         <hr class="w-100 my-sm border-neutral-border-weak">
         <div class="chapter-title">Category Sentiment Distribution</div>
-        <img src="./src/img/classChart.png" style="margin-top: 2rem;">
-        <p><b>Overall Negative Sentiment Proportion</b></p>
-        <ul>
-            <li>Possible reasons:</li>
-            <ol>
-                <li>Online content tends to attract more positive comments.</li>
-                <li>People tend to be mindful of the emotional tone of their comments.</li>
-            </ol>
-            <li>However, negative comments are often more noticeable, so the impression of a subreddit may be worse than reality.</li>
-        </ul>
-        <p><b>"Growth" Category's Extreme Sentiment Distribution</b></p>
-        <ul>
-            <li>Possible reasons:</li>
-            <ol>
-                <li>Recent growth topics are more eye-catching, sensational, and have more discussion potential.</li>
-                <li>There may be trolling behavior, leading to more emotional comments overall.</li>
-            </ol>
-            <li>Recent growth topics make it difficult for users to maintain a neutral stance, possibly related to media traffic.</li>
-        </ul>
-        <p><b>"Interesting" Category's Lowest Negative Proportion</b></p>
-        <ul>
-            <li>Possible reasons:</li>
-            <ol>
-                <li>The content of the subreddit is more lighthearted or meaningless.</li>
-                <li>Most of the content is not very nutritious, so users may experience less emotional ups and downs.</li>
-                <li>Users can identify that the subreddit is simply for fun, so they usually respond in a relaxed manner.</li>
-            </ol>
-            <li>Many interesting subreddits have very nonsensical titles, some of which are quite offensive, but the comments are often filled with a lighthearted atmosphere.</li>
-        </ul>
+        <div class="chapter-content">
+            <img src="./src/img/classChart.png" style="margin-top: 2rem;">
+            <p><b>Overall Negative Sentiment Proportion</b></p>
+            <ul>
+                <li>Possible reasons:</li>
+                <ol>
+                    <li>Online content tends to attract more positive comments.</li>
+                    <li>People tend to be mindful of the emotional tone of their comments.</li>
+                </ol>
+                <li>However, negative comments are often more noticeable, so the impression of a subreddit may be worse than reality.</li>
+            </ul>
+            <p><b>"Growth" Category's Extreme Sentiment Distribution</b></p>
+            <ul>
+                <li>Possible reasons:</li>
+                <ol>
+                    <li>Recent growth topics are more eye-catching, sensational, and have more discussion potential.</li>
+                    <li>There may be trolling behavior, leading to more emotional comments overall.</li>
+                </ol>
+                <li>Recent growth topics make it difficult for users to maintain a neutral stance, possibly related to media traffic.</li>
+            </ul>
+            <p><b>"Interesting" Category's Lowest Negative Proportion</b></p>
+            <ul>
+                <li>Possible reasons:</li>
+                <ol>
+                    <li>The content of the subreddit is more lighthearted or meaningless.</li>
+                    <li>Most of the content is not very nutritious, so users may experience less emotional ups and downs.</li>
+                    <li>Users can identify that the subreddit is simply for fun, so they usually respond in a relaxed manner.</li>
+                </ol>
+                <li>Many interesting subreddits have very nonsensical titles, some of which are quite offensive, but the comments are often filled with a lighthearted atmosphere.</li>
+            </ul>
+        </div>
         <hr class="w-100 my-sm border-neutral-border-weak">
         <div class="chapter-title">Subreddit Sentiment Average</div>
-        <iframe width="100%" height="906" frameborder="0" src="https://observablehq.com/embed/8eca6e7b0d948a10@541?cells=chart"></iframe>
+        <div class="chapter-content">
+            <iframe width="100%" height="906" frameborder="0" src="https://observablehq.com/embed/8eca6e7b0d948a10@541?cells=chart"></iframe>
+        </div>
+        <hr class="w-100 my-sm border-neutral-border-weak">
         <div class="chapter-title">Some Subreddit Sentiment Analysis</div>
-        <p><b>r/photoshopbattles:</b> Highest average sentiment score</p>
-        <ul>
-            <li>The content mostly consists of competition information, award lists, and artwork sharing.</li>
-            <li>Competition information and bot posts are mostly categorized as neutral comments.</li>
-            <li>Award lists are usually categorized as positive comments.</li>
-            <li>Comments on artwork sharing are generally positive as well.</li>
+        <div class="chapter-content">
+            <p><b>r/photoshopbattles:</b> Highest average sentiment score</p>
             <ul>
-                <li>This might be related to the nature of the artworks.</li>
-                <li>Most artworks can make people smile or are technically impressive.</li>
+                <li>The content mostly consists of competition information, award lists, and artwork sharing.</li>
+                <li>Competition information and bot posts are mostly categorized as neutral comments.</li>
+                <li>Award lists are usually categorized as positive comments.</li>
+                <li>Comments on artwork sharing are generally positive as well.</li>
+                <ul>
+                    <li>This might be related to the nature of the artworks.</li>
+                    <li>Most artworks can make people smile or are technically impressive.</li>
+                </ul>
+                <img src="./src/img/photoshopbattles.png" style="height: 40%; width: 40%; margin-top: 1rem;">
             </ul>
-        </ul>
-        <p><b>r/iamanutterpieceofshit:</b> lowest average sentiment score</p>
-        <ul>
-            <li>The content is filled with dissatisfaction about specific events.</li>
-            <li>These include discrimination, war, terrible drivers, and morally corrupt individuals.</li>
-            <li>Most users express anger towards the content shared in the subreddit.</li>
-            <li>Some users use sarcasm to mock the content, but the model marks these as positive, so the actual average score should be even lower.</li>
-        </ul>
-        <p><b>r/politics</b></p>
-        <ul>
-            <li>This subreddit has rules requiring users to be polite and prohibiting offensive comments.</li>
-            <li>After moderation, most comments appear more rational.</li>
-            <li>Although there is negative sentiment, it is clear that it has been toned down.</li>
-        </ul>
-        <p><b>r/Giraffesdontexist</b></p>
-        <ul>
-            <li>Most content is so serious that it makes people wonder if it’s satirical.</li>
-            <li>The term "conspiracy" appears very frequently.</li>
-            <li>Users in this subreddit are deeply immersed in the belief that "giraffes don't exist, and the giraffes in zoos are a conspiracy by the government to make us believe they exist."</li>
-        </ul>
+            <p><b>r/iamanutterpieceofshit:</b> lowest average sentiment score</p>
+            <ul>
+                <li>The content is filled with dissatisfaction about specific events.</li>
+                <li>These include discrimination, war, terrible drivers, and morally corrupt individuals.</li>
+                <li>Most users express anger towards the content shared in the subreddit.</li>
+                <li>Some users use sarcasm to mock the content, but the model marks these as positive, so the actual average score should be even lower.</li>
+                <img src="./src/img/iamanutterpieceofshit.png" style="height: 40%; width: 40%; margin-top: 1rem;">
+            </ul>
+            <p><b>r/politics</b></p>
+            <ul>
+                <li>This subreddit has rules requiring users to be polite and prohibiting offensive comments.</li>
+                <li>After moderation, most comments appear more rational.</li>
+                <li>Although there is negative sentiment, it is clear that it has been toned down.</li>
+                <img src="./src/img/politics.png" style="height: 40%; width: 40%; margin-top: 1rem;">
+            </ul>
+            <p><b>r/Giraffesdontexist</b></p>
+            <ul>
+                <li>Most content is so serious that it makes people wonder if it’s satirical.</li>
+                <li>The term "conspiracy" appears very frequently.</li>
+                <li>Users in this subreddit are deeply immersed in the belief that "giraffes don't exist, and the giraffes in zoos are a conspiracy by the government to make us believe they exist."</li>
+                <img src="./src/img/Giraffesdontexist.png" style="height: 40%; width: 40%; margin-top: 1rem;">
+            </ul>
+        </div>
         <hr class="w-100 my-sm border-neutral-border-weak">
         <div class="chapter-title">Conclusion</div>
-        <ul>
-            <li>Based on the tagging results, most comments remain positive.</li>
-            <li>However, we found that a large number of comments are marked as neutral.</li>
-            <li>Additionally, our model is currently unable to distinguish sarcastic statements, resulting in some misclassifications.</li>
-            <li>Subreddits with bot moderation generally have fewer negative sentiments.</li>
-        </ul>
+        <div class="chapter-content">
+            <ul>
+                <li>Based on the tagging results, most comments remain positive.</li>
+                <li>However, we found that a large number of comments are marked as neutral.</li>
+                <li>Additionally, our model is currently unable to distinguish sarcastic statements, resulting in some misclassifications.</li>
+                <li>Subreddits with bot moderation generally have fewer negative sentiments.</li>
+            </ul>
+        </div>
     </div>
 </div>
