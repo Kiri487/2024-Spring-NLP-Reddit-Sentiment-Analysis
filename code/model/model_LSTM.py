@@ -13,15 +13,15 @@ warnings.filterwarnings("ignore")
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 print('device', device)
 
-run_name = 'LSTM_lr_0.001_epochs_150'
+run_name = 'LSTM_lr_0.0001_epochs_100'
 
 wandb.init(
     project = "Reddit_Sentiment_Analysis",
     entity = "kiri487",
     name = run_name,
     config = {
-        "learning_rate": 0.001,
-        "epochs": 150,
+        "learning_rate": 0.0001,
+        "epochs": 100,
         "batch_size": 256,
     }
 )
@@ -59,7 +59,7 @@ class SentimentAnalysisModel(nn.Module):
         x = self.dropout(x)
         x = torch.relu(self.fc2(x))
         x = self.dropout(x)
-        x = torch.softmax(self.fc3(x), dim = 1)
+        x = self.fc3(x)
         return x
 
 max_vocab_index = np.max(train_data) + 1
