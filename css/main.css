@@ -1,3 +1,30 @@
+/* 強制修正選單展開後的顯示問題 */
+details[open] faceplate-auto-height-animator {
+    height: auto !important;
+    display: block !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+div[faceplate-auto-height-animator-content] {
+    display: block !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+/* 確保側邊欄項目在展開後正確排列 */
+.class-list-subreddit {
+    display: block !important;
+    padding: 8px 16px !important;
+    cursor: pointer !important;
+    color: #1A1A1B !important; /* Reddit 標準文字顏色 */
+    text-decoration: none;
+}
+
+.class-list-subreddit:hover {
+    background-color: rgba(26, 26, 27, 0.05);
+}
+
 .community-banner {
     position: relative;
     background-position: center;
